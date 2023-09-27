@@ -1,0 +1,29 @@
+package com.HeaderLinksTsrtc;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+public class HeaderLinksTsrtc extends BaseTest {
+	
+	@Test
+	public void headerLinks_Test()
+	{
+		By headerBlockProperty=By.id("menu-wrap");
+		WebElement headerBlock=driver.findElement(headerBlockProperty);
+		
+		By headerBlockLinksProperty=By.tagName("a");
+		List<WebElement>headerBlockLinks=driver.findElements(headerBlockLinksProperty);
+		
+		int headerBlocksLinksCount=headerBlockLinks.size();
+		
+		for(int listIndex=0;listIndex<=headerBlocksLinksCount;listIndex++)
+		{
+			
+			
+		}
+	}
+
+}

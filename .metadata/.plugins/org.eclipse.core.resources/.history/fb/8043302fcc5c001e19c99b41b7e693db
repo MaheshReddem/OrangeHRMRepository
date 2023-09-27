@@ -1,0 +1,52 @@
+package com.HeaderLinksTsrtc;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+public class HeaderLinksTsrtc extends BaseTest {
+	
+	@Test
+	public void headerLinks_Test()
+	{
+		
+		By headerBlockProperty=By.className("menu-wrap");
+		WebElement headerBlock=driver.findElement(headerBlockProperty);
+		
+		By headerBlockLinksProperty=By.tagName("a");
+		List<WebElement>headerBlockLinks=headerBlock.findElements(headerBlockLinksProperty);
+		
+		int headerBlocksLinksCount=headerBlockLinks.size();
+		System.out.println(" Number of links in the header block are: "+headerBlocksLinksCount);
+		
+		for(int listIndex=0;listIndex<=headerBlocksLinksCount;listIndex++)
+		{
+			
+			String headerBlocksLinksName=headerBlockLinks.get(listIndex).getText();
+			System.out.println(" Header blocks links are: "+headerBlocksLinksName);
+			
+			String expected_HeaderBlockLinkURLAddress=headerBlockLinks.get(listIndex).getAttribute("href");
+			System.out.println(" The expected URL address is: "+expected_HeaderBlockLinkURLAddress);
+			
+			headerBlockLinks.get(listIndex).click();
+			
+			String actual_HeaderBlockLinkURLAddress=driver.getCurrentUrl();
+			System.out.println(" The expected URL address is: "+actual_HeaderBlockLinkURLAddress);
+			
+			if(actual_HeaderBlockLinkURLAddress.equals(expected_HeaderBlockLinkURLAddress))
+			{
+				System.out.println(" ***Successfully Navigated to expected webpage *** ");
+			}
+			else
+			{
+				System.out.println(" ***Failed to Navigate to expected webpage *** ");
+			}
+			
+			driver.navigate().back();
+			
+		}
+	}
+
+}

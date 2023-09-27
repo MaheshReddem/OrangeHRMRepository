@@ -1,0 +1,12 @@
+<suite name="OrangeHRMApplication" parallel="tests">
+	<test name="OrangeHRMApplication_LoginTest">
+		<classes>
+			<class name="com.TestNG_OHRM.LoginTest_MultiDimension_TestData"/>
+		</classes>
+	</test>
+	<test name="OrangeHRMAddEmployee_Test">
+		<classes>
+			<class name="com.OrangeHRMApplication.OrangeHRMApplication_AddEmployeeTest"/>
+		</classes>
+	</test>
+</suite>

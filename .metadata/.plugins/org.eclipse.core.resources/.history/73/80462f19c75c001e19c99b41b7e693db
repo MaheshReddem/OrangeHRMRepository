@@ -1,0 +1,35 @@
+package com.HeaderLinksTsrtc;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeTest;
+
+public class BaseTest {
+	
+	WebDriver driver;
+	
+	@BeforeTest
+	public void applicationLaunch_Test()
+	{
+		System.setProperty("webdriver.chrome.driver", "./Driverfiles/chromedriver.exe");
+		driver=new ChromeDriver();
+		
+		String applicationURLAddress="https://www.tsrtconline.in/oprs-web/";
+		driver.get(applicationURLAddress);
+		
+		driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		
+	}
+	
+	public void applicationCloseTest()
+	{
+		driver.close();
+	}
+	
+	
+
+}
